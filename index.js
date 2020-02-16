@@ -6,48 +6,56 @@ let fs = require('fs');
 const _ = require('lodash');
 const BeachConstants = require('./beachConstants')
 
-async function getAllBeachesForAllTime() {
-
-  return await fetch(
-    'http://app.toronto.ca/tpha/ws/beaches/history/all.xml?v=1.0'
-  )
-    .then(res => {
-      return res.text();
-    })
-    .then(res => {
-      const allTimeBeachData = formatBeachData(res);
-      return allTimeBeachData;
-    })
-    .catch(err => {
-      console.log({ err });
-    });
+function getAllBeachesAllTime() {
+  return getFromApi('http://app.toronto.ca/tpha/ws/beaches/history/all.xml?v=1.0');
 }
-
-
-
 
 function getAllBeachesLatest() {
-  return fetch('http://app.toronto.ca/tpha/ws/beaches.xml?v=1.0')
+  return getFromApi('http://app.toronto.ca/tpha/ws/beaches.xml?v=1.0');
+}
+
+function getAllBeachesForRange(start, endDate) {
+  if (!start || !end) {
+    throw 'Both a start date and end date are required. We also expect a date format of YYYY-MM-DD';
+  }
+  return getFromApi(`http://app.toronto.ca/tpha/ws/beaches/history.xml?v=1.0&from=${start}&to=${endDate}`);
+}
+
+function getSpecificBeachForRange(beachID, startDate, endDate) {
+  if (!startDate || !endDate || !beachID) {
+    throw 'Both a start date and end date are required. We also expect a date format of YYYY-MM-DD';
+  }
+  return getFromApi(`http://app.toronto.ca/tpha/ws/beach/${beachID}/history.xml?v=1.0&from=${startDate}&to=${endDate}`);
+}
+
+function getSpecificBeachAllTime(beachID) {
+  if (!startDate || !endDate || !beachID) {
+    throw 'Both a start date and end date are required. We also expect a date format of YYYY-MM-DD';
+  }
+  return getFromApi(`http://app.toronto.ca/tpha/ws/beach/${beachID}/history/all.xml?v=1.0`);
+}
+
+function getFromApi(url) {
+  return fetch(url)
     .then(res => {
       return res.text();
     })
     .then(res => {
-      const allTimeBeachData = formatBeachData(res);
-      return allTimeBeachData;
+      const beachData = formatBeachData(res);
+      return beachData;
     })
     .catch(err => {
       console.log({ err });
     });
 }
 
+const test = getSpecificBeachForRange(1, '2019-02-01', '2019-09-31').then(res => {
+  // console.log({ res });
 
-
-
-const test = getAllBeachesLatest()
-  .then(res => {
-
-    console.log({res});
-  })
+  res.forEach(item => {
+    console.log({ item });
+  });
+});
 
 
   const formatBeachData = (rawData) => {
@@ -92,6 +100,9 @@ const test = getAllBeachesLatest()
 
 
 module.exports = {
-  getAllBeachesForAllTime,
+  getAllBeachesAllTime,
   getAllBeachesLatest,
+  getAllBeachesForRange,
+  getSpecificBeachForRange,
+  getSpecificBeachAllTime
 };
