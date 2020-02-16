@@ -56,12 +56,6 @@ All good? Awesome. Onto the good stuff.
 # Methods
 
 
-A couple of ideas that will make this make more sense, hopefully.
-&nbsp;
-&nbsp;
-Do you want:
-### A specific beach or all of them?
-### And a specific time frame, or all time?
 
 &nbsp;
 A sample response of a single data point.:
@@ -69,20 +63,16 @@ A sample response of a single data point.:
 
    
 ```
-const response = [
-	...,
-	{
-		beachID: 4,
-		name: 'Gibraltar Point Beach',
-		map: 'https://www.google.com/maps?saddr=My+Location&daddr=43.612487,-79.382173',
-		sampleDate: '2019-09-02',
-		publishDate: '2019-09-04',
-		eColiCount: 11,
-		beachAdvisory: "E.coli levels are within the City of Toronto's established beach water quality standard of 100 E.coli per 100ml of water.",
-		beachState: 'Safe'
-	},
-	...,
-]
+{
+	beachID: 4,
+	name: 'Gibraltar Point Beach',
+	map: '43.612487,-79.382173',
+	sampleDate: '2019-09-02',
+	publishDate: '2019-09-04',
+	eColiCount: 11,
+	beachAdvisory: "E.coli levels are within the City of Toronto's established beach water quality standard of 100 E.coli per 100ml of water.",
+	beachState: 'Safe'
+}
 ```
 
 Latest reading for all beaches
@@ -98,8 +88,6 @@ All time data for all beaches
 &nbsp;
 
 All beaches between two dates.
-
-
 
 
     getAllBeachesAllTime('YYYY-MM-DD', 'YYYY-MM-DD');
