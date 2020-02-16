@@ -1,6 +1,6 @@
 {
   "name": "torontobeach",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Access and parse the City of Toronto's beach ecoli readings.",
   "main": "index.js",
   "scripts": {
