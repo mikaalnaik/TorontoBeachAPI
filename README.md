@@ -50,13 +50,6 @@ Using Async/Await
 
 &nbsp;
 
-All good? Awesome. Onto the good stuff.
-&nbsp;
-
-# Methods
-
-
-
 &nbsp;
 A sample response of a single data point.:
 
@@ -74,6 +67,16 @@ A sample response of a single data point.:
 	beachState: 'Safe'
 }
 ```
+&nbsp;
+
+All good? Awesome. Onto the good stuff.
+&nbsp;
+
+# Methods
+
+
+
+
 
 Latest reading for all beaches
 
