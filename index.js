@@ -70,7 +70,6 @@ const test = getSpecificBeachForRange(1, '2019-02-01', '2019-09-31').then(res =>
       .map(beach => {
         const beachData = get(beach, ['elements']);
         const beachID = get(beach, ['attributes', 'beachId']);
-        console.log({ date: get(beachData, [0, 'elements', 0, 'text']) });
         return {
           beachID: Number(beachID),
           name: get(BeachConstants, [beachID, 'name']),

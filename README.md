@@ -93,7 +93,22 @@ All time data for all beaches
 All beaches between two dates.
 
 
-    getAllBeachesAllTime('YYYY-MM-DD', 'YYYY-MM-DD');
+    getAllBeachesForRange('YYYY-MM-DD', 'YYYY-MM-DD');
+
+&nbsp;
+
+Specific beach between two dates.
+
+
+    getSpecificBeachForRange(beachID, 'YYYY-MM-DD', 'YYYY-MM-DD');
+
+&nbsp;
+
+
+All time data for specific beach
+
+
+    getSpecificBeachAllTime(beachID);
 
 &nbsp;
 
