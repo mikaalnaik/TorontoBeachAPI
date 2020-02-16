@@ -1,6 +1,6 @@
 {
   "name": "torontobeach",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Access and parse the City of Toronto's beach ecoli readings.",
   "main": "index.js",
   "scripts": {
@@ -15,8 +15,7 @@
   "author": "Mikaal Naik",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "lodash.get": "^4.4.2",
     "node-fetch": "^2.6.0",
     "xml-js": "^1.6.11"
   }

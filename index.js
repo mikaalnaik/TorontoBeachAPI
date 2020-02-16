@@ -1,9 +1,7 @@
 
 const fetch = require('node-fetch');
 const convert = require('xml-js');
-const moment = require('moment');
-let fs = require('fs');
-const _ = require('lodash');
+const get = require('lodash.get');
 const BeachConstants = require('./beachConstants')
 
 function getAllBeachesAllTime() {
@@ -53,7 +51,7 @@ const test = getSpecificBeachForRange(1, '2019-02-01', '2019-09-31').then(res =>
   // console.log({ res });
 
   res.forEach(item => {
-    console.log({ item });
+    // console.log({ item });
   });
 });
 
@@ -66,31 +64,26 @@ const test = getSpecificBeachForRange(1, '2019-02-01', '2019-09-31').then(res =>
       })
     );
 
-    const beaches = _.get(data, ['elements', 0, 'elements', 1, 'elements']);
+    const beaches = get(data, ['elements', 0, 'elements', 1, 'elements']);
 
     return beaches
       .map(beach => {
-        const beachData = _.get(beach, ['elements']);
-        const beachID = _.get(beach, ['attributes', 'beachId']);
+        const beachData = get(beach, ['elements']);
+        const beachID = get(beach, ['attributes', 'beachId']);
+        console.log({ date: get(beachData, [0, 'elements', 0, 'text']) });
         return {
           beachID: Number(beachID),
-          name: _.get(BeachConstants, [beachID, 'name']),
-          map: _.get(BeachConstants, [beachID, 'map']),
-          sampleDate: moment(
-            _.get(beachData, [0, 'elements', 0, 'text']),
-            'YYYY-MM-DD'
-          ).format('YYYY-MM-DD'),
-          publishDate: moment(
-            _.get(beachData, [1, 'elements', 0, 'text']),
-            'YYYY-MM-DD'
-          ).format('YYYY-MM-DD'),
-          eColiCount: Number(_.get(beachData, [2, 'elements', 0, 'text'])),
-          beachAdvisory: _.get(beachData, [3, 'elements', 0, 'text']),
-          beachState: _.get(beachData, [4, 'elements', 0, 'text'])
+          name: get(BeachConstants, [beachID, 'name']),
+          map: get(BeachConstants, [beachID, 'map']),
+          sampleDate: get(beachData, [0, 'elements', 0, 'text']),
+          publishDate: get(beachData, [1, 'elements', 0, 'text']),
+          eColiCount: Number(get(beachData, [2, 'elements', 0, 'text'])),
+          beachAdvisory: get(beachData, [3, 'elements', 0, 'text']),
+          beachState: get(beachData, [4, 'elements', 0, 'text'])
         };
       })
       .filter(element => {
-        if (_.get(element, ['name'])) {
+        if (get(element, ['name'])) {
           return element;
         }
       });
