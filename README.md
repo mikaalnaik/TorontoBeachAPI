@@ -50,25 +50,6 @@ Using Async/Await
 
 &nbsp;
 
-All good? Awesome. Onto the good stuff.
-&nbsp;
-
-Quick reference for the beach IDs:
-
-    Marie Curtis Park East Beach: 1
-    Sunnyside Beach: 2
-    Hanlan's Point Beach: 3
-    Gibraltar Point Beach: 4
-    Centre Island Beach: 5
-    Ward's Island Beach: 6
-    Cherry Beach: 7
-    Woodbine Beaches: 8
-    Kew Balmy Beach: 9
-    Bluffer's Beach Park: 10
-    Rouge Beach: 11
-
-# Methods
-
 &nbsp;
 A sample response of a single data point.:
 
@@ -86,6 +67,14 @@ A sample response of a single data point.:
 	beachState: 'Safe'
 }
 ```
+&nbsp;
+
+All good? Awesome. Onto the good stuff.
+&nbsp;
+
+# Methods
+
+
 
 Latest reading for all beaches
 
@@ -102,13 +91,29 @@ All time data for all beaches
 All beaches between two dates.
 
 
-
-
-    getAllBeachesAllTime('YYYY-MM-DD', 'YYYY-MM-DD');
+    getAllBeachesForRange('YYYY-MM-DD', 'YYYY-MM-DD');
 
 &nbsp;
 
-Awesome!
-If you are interested in learning more, or about contributing, check out the repository at:
-[https://github.com/mikaalnaik/TorontoBeach](https://github.com/mikaalnaik/TorontoBeach)
+Specific beach between two dates.
+
+
+    getSpecificBeachForRange(beachID, 'YYYY-MM-DD', 'YYYY-MM-DD');
+
 &nbsp;
+
+
+All time data for specific beach
+
+
+    getSpecificBeachAllTime(beachID);
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+Awesome! 
+
+If you are interested in learning more, or about contributing, check out the repository at: https://github.com/mikaalnaik/TorontoBeach  
+
+
