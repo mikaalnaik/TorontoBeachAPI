@@ -32,10 +32,12 @@ That's it!
 # Usage
 
 
+&nbsp;
 
 ### We are fetching data here, so we're returning promises.
 &nbsp;
-Using promises:
+&nbsp;
+**Using promises:**
 
 
     torontobeach.getAllBeachesLatest()
@@ -44,11 +46,10 @@ Using promises:
 	    });
 
 
-Using Async/Await
+**Using Async/Await**
 
     const beachData = await torontobeach.getAllBeachesLatest();
 
-&nbsp;
 
 &nbsp;
 A sample response of a single data point.:
@@ -70,7 +71,7 @@ A sample response of a single data point.:
 &nbsp;
 
 
-Quick reference for the beach IDs:
+**Quick reference for the beach IDs:**
 
   
 
@@ -94,26 +95,26 @@ All good? Awesome. Onto the good stuff.
 
 
 
-Latest reading for all beaches
+**Latest reading for all beaches**
 
     getAllBeachesLatest();
 
 &nbsp;
 
-All time data for all beaches
+**All time data for all beaches**
 
     getAllBeachesAllTime();
 
 &nbsp;
 
-All beaches between two dates.
+**All beaches between two dates.**
 
 
     getAllBeachesForRange('YYYY-MM-DD', 'YYYY-MM-DD');
 
 &nbsp;
 
-Specific beach between two dates.
+**Specific beach between two dates.**
 
 
     getSpecificBeachForRange(beachID, 'YYYY-MM-DD', 'YYYY-MM-DD');
@@ -121,7 +122,7 @@ Specific beach between two dates.
 &nbsp;
 
 
-All time data for specific beach
+**All time data for specific beach**
 
 
     getSpecificBeachAllTime(beachID);
