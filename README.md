@@ -69,6 +69,24 @@ A sample response of a single data point.:
 ```
 &nbsp;
 
+
+Quick reference for the beach IDs:
+
+  
+
+    Marie Curtis Park East Beach: 1
+    Sunnyside Beach: 2
+    Hanlan's Point Beach: 3
+    Gibraltar Point Beach: 4
+    Centre Island Beach: 5
+    Ward's Island Beach: 6
+    Cherry Beach: 7
+    Woodbine Beaches: 8
+    Kew Balmy Beach: 9
+    Bluffer's Beach Park: 10
+    Rouge Beach: 11
+
+&nbsp;
 All good? Awesome. Onto the good stuff.
 &nbsp;
 
