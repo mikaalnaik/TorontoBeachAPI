@@ -69,23 +69,13 @@ Quick reference for the beach IDs:
 
 # Methods
 
-
-A couple of ideas that will make this make more sense, hopefully.
-&nbsp;
-&nbsp;
-Do you want:
-### A specific beach or all of them?
-### And a specific time frame, or all time?
-
 &nbsp;
 A sample response of a single data point.:
 
 
    
 ```
-
 {
-
 	beachID: 4,
 	name: 'Gibraltar Point Beach',
 	map: '43.612487,-79.382173',
@@ -95,7 +85,6 @@ A sample response of a single data point.:
 	beachAdvisory: "E.coli levels are within the City of Toronto's established beach water quality standard of 100 E.coli per 100ml of water.",
 	beachState: 'Safe'
 }
-
 ```
 
 Latest reading for all beaches
