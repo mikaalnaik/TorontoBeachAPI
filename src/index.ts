@@ -1,10 +1,10 @@
 
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 const convert = require('xml-js');
 const get = require('lodash.get');
-const BeachConstants = require('./beachConstants');
+const BeachConstants = require('../beachConstants');
 
-DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
+const DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
 
 function getAllBeachesAllTime() {
   return getFromApi('beaches/history/all.xml?v=1.0');
@@ -46,18 +46,15 @@ function getSpecificBeachAllTime(beachID) {
   return getFromApi(`beach/${beachID}/history/all.xml?v=1.0`);
 }
 
-function getFromApi(path) {
-  return fetch(`http://app.toronto.ca/tpha/ws/${path}`)
-    .then(res => {
-      return res.text();
-    })
-    .then(res => {
-      const beachData = formatBeachData(res);
-      return beachData;
-    })
-    .catch(err => {
-      console.log({ err });
-    });
+async function getFromApi(path: string) {
+  try {
+    const res = await fetch(`http://app.toronto.ca/tpha/ws/${path}`);
+    const response = await res.text();
+    const beachData = formatBeachData(response);
+    return beachData;
+  } catch (err) {
+    console.error({ err });
+  }
 }
 
 /*

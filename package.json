@@ -1,10 +1,12 @@
 {
   "name": "torontobeach",
-  "version": "1.0.19",
+  "version": "1.1.0",
   "description": "Access and parse the City of Toronto's beach ecoli readings.",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "tsc"
   },
   "keywords": [
     "Toronto",
@@ -18,5 +20,8 @@
     "lodash.get": "^4.4.2",
     "node-fetch": "^2.6.0",
     "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4"
   }
 }
